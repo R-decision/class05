@@ -24,9 +24,10 @@ output:
 
 ```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(openintro)
-loans_full_schema <- loans_full_schema %>%
-  mutate(grade = factor(grade, ordered = TRUE))
+library(Tmisc)
+library(emo)
+library(dsbox)
+
 ```
 
 ```{r xaringan-tile-view, echo=FALSE}
@@ -35,11 +36,6 @@ xaringanExtra::use_tile_view()
 
 ```{r xaringan-editable, echo=FALSE}
 xaringanExtra::use_editable(expires = 1)
-```
-
-```{r xaringan-panelset, echo=FALSE, message=FALSE, warning=FALSE}
-xaringanExtra::use_panelset()
-xaringanExtra::style_panelset_tabs(panel_tab_font_family = "sans-serif")
 ```
 
 ```{r xaringanExtra-clipboard, echo=FALSE}
@@ -67,7 +63,6 @@ xaringanExtra::use_extra_styles(
 ```{r xaringan-scribble, echo=FALSE}
 xaringanExtra::use_scribble()
 ```
-
 class: center, middle
 
 ## Retrospecto
@@ -108,7 +103,7 @@ Alison Hill [Teaching in Production](https://rstudio-education.github.io/teachin
 - As parcelas são construídas em camadas
 - A estrutura do código para as parcelas pode ser resumida como
 
-```{r eval = FALSE}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE, echo=FALSE}
 ggplot(data = [dataset], 
        mapping = aes(x = [x-variable], y = [y-variable])) +
    geom_xxx() +
